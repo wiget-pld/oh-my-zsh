@@ -1,12 +1,12 @@
 function _rails_command () {
-  if [ -e "script/server" ]; then
-    ruby script/$@
+  if [ -e "bin/rails" ]; then
+    bin/rails $@
   elif [ -e "script/rails" ]; then
     ruby script/rails $@
-  elif [ -e "bin/rails" ]; then
-    bin/rails $@
+  elif [ -e "script/server" ]; then
+    ruby script/$@
   else
-    rails $@
+    command rails $@
   fi
 }
 
@@ -14,7 +14,7 @@ function _rake_command () {
   if [ -e "bin/rake" ]; then
     bin/rake $@
   else
-    rake $@
+    command rake $@
   fi
 }
 
